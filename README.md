@@ -2,9 +2,11 @@
 
 ## Installation
 
+```bash
 git clone http://github.com/hoangelos/dotfiles dotfiles
 cd dotfiles
 ./bootstrap.sh
+```
 
 ## Thanks to
 
