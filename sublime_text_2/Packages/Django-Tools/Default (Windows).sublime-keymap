@@ -1,0 +1,3 @@
+[
+    { "keys": ["ctrl+r", "ctrl+c"], "command": "host_lookup"}
+]

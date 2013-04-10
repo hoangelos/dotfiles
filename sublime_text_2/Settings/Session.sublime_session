@@ -1,0 +1,356 @@
+{
+	"folder_history":
+	[
+		"/Users/phalliday/mongo-tools",
+		"/Users/phalliday/Documents/intentmedia",
+		"/Users/phalliday/arXivSrc",
+		"/Users/phalliday/datastax",
+		"/Users/phalliday/programmer-hiring-1.0.0",
+		"/Users/phalliday/sittercity",
+		"/Users/phalliday/shutterstock",
+		"/Users/phalliday/Downloads/programmer-hiring-1-1.0.0"
+	],
+	"last_window_id": 54,
+	"settings":
+	{
+		"new_window_height": 793.0,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"n",
+						"new"
+					],
+					[
+						"try",
+						"try	Try/Except"
+					],
+					[
+						"assert",
+						"assertRaises	Default"
+					],
+					[
+						"colu",
+						"column_finish	Default"
+					],
+					[
+						"column",
+						"column_start	Default"
+					],
+					[
+						"colum",
+						"column_family	Default"
+					],
+					[
+						"isin",
+						"isinstance()	isinstance fn"
+					],
+					[
+						"asser",
+						"assertFalse	Default"
+					],
+					[
+						"Time",
+						"TimeseriesData"
+					],
+					[
+						"fl",
+						"flush()	file"
+					],
+					[
+						"appe",
+						"append()	Mutable"
+					],
+					[
+						"col",
+						"column_family	Default"
+					],
+					[
+						"opt",
+						"options"
+					],
+					[
+						"line",
+						"line_num	Default"
+					],
+					[
+						"lea",
+						"least_cost	Default"
+					],
+					[
+						"node",
+						"node_list	Default"
+					],
+					[
+						"tree",
+						"treeify	Default"
+					],
+					[
+						"cl",
+						"close()	file"
+					],
+					[
+						"l",
+						"left	Default"
+					],
+					[
+						"read",
+						"readline()	file"
+					],
+					[
+						"if",
+						"ifmain	if __name__ == '__main__'"
+					],
+					[
+						"typing",
+						"typingTimer"
+					]
+				]
+			},
+			"build_system": "Packages/Python/Python.sublime-build",
+			"command_palette":
+			{
+				"height": 347.0,
+				"selected_items":
+				[
+					[
+						"pack",
+						"Package Control: Add Repository"
+					],
+					[
+						"packi",
+						"Package Control: Install Package"
+					],
+					[
+						"paci",
+						"Package Control: Install Package"
+					],
+					[
+						"packin",
+						"Package Control: Install Package"
+					],
+					[
+						"inst",
+						"Package Control: Install Package"
+					],
+					[
+						"packins",
+						"Package Control: Install Package"
+					],
+					[
+						"code",
+						"SublimeCodeIntel: Reset"
+					],
+					[
+						"inte",
+						"SublimeCodeIntel: Reset"
+					],
+					[
+						"ins",
+						"Package Control: Install Package"
+					],
+					[
+						"in",
+						"Package Control: Install Package"
+					],
+					[
+						"pin",
+						"Package Control: Install Package"
+					],
+					[
+						"p ins",
+						"Package Control: Install Package"
+					],
+					[
+						"p in",
+						"Package Control: Install Package"
+					],
+					[
+						"pa i",
+						"Package Control: Install Package"
+					],
+					[
+						"pac in",
+						"Package Control: Install Package"
+					],
+					[
+						"pack ins",
+						"Package Control: Install Package"
+					],
+					[
+						"pack in",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 593.0
+			},
+			"console":
+			{
+				"height": 125.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/Users/phalliday/datastax/lib/datastax/models.py",
+				"/Users/phalliday/datastax/lib/timeline.py",
+				"/Users/phalliday/sittercity/src/class.rb",
+				"/Users/phalliday/shutterstock/files/triangle-2.txt",
+				"/Users/phalliday/shutterstock/files/triangle-1.txt",
+				"/Users/phalliday/shutterstock/src/__init__.py",
+				"/Users/phalliday/shutterstock/src/util.py",
+				"/Users/phalliday/shutterstock/src/node.py",
+				"/Users/phalliday/shutterstock/src/tree.py",
+				"/Users/phalliday/Downloads/programmer-hiring-1-1.0.0/spec/modules/website_spec.rb",
+				"/Users/phalliday/Downloads/programmer-hiring-1-1.0.0/spec/modules/status_worker_spec.rb",
+				"/Users/phalliday/mongo-tools/app/views/shared/blacklist.html.erb",
+				"/Users/phalliday/Downloads/programmer-hiring-1-1.0.0/spec/modules/status_server_spec.rb",
+				"/Users/phalliday/Downloads/programmer-hiring-1-1.0.0/modules/status_server.rb",
+				"/Users/phalliday/mongo-tools/app/views/shared/collection_blacklist.html.erb",
+				"/Users/phalliday/mongo-tools/app/views/shared/_database_sidebar.html.erb",
+				"/Users/phalliday/mongo-tools/app/views/shared/_collections_sidebar.html.erb",
+				"/Users/phalliday/mongo-tools/app/assets/javascripts/explorer/documents.js",
+				"/Users/phalliday/mongo-tools/app/assets/javascripts/mongo_tools.js",
+				"/Users/phalliday/mongo-tools/app/controllers/explorer/documents_controller.rb",
+				"/Users/phalliday/Library/Application Support/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+				"/Users/phalliday/mongo-tools/.travis.yml"
+			],
+			"find":
+			{
+				"height": 35.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"DEFAULT_ACCESS_LOG",
+					"$ACCESS_LOG",
+					"fwcmd",
+					"$ACCESS_LOG",
+					"$LOGS",
+					"$ACCESS_LOG",
+					"'__LOGGED__'",
+					"comparator_type",
+					"866",
+					"file",
+					"response",
+					"each",
+					"first",
+					"StatusServer returns a successful ping then an error then a success",
+					"validateJSON",
+					"params"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 0.0
+			},
+			"input":
+			{
+				"height": 31.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.exec":
+			{
+				"height": 100.0
+			},
+			"replace":
+			{
+				"height": 0.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+					[
+						".js",
+						"app/assets/javascripts/explorer/documents.js"
+					],
+					[
+						"doc",
+						"app/controllers/explorer/documents_controller.rb"
+					]
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 500.0,
+				"selected_items":
+				[
+				],
+				"width": 380.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 299.0,
+			"status_bar_visible": true
+		},
+		"new_window_width": 1440.0
+	},
+	"windows":
+	[
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

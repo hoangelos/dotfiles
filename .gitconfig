@@ -1,0 +1,13 @@
+[user]
+	name = Peter Halliday
+	email = pjh239@cornell.edu
+
+[sendemail]
+	confirm = auto
+
+[color]
+
+	ui = true
+
+[core]
+	editor = sublime -n -w
