@@ -19,6 +19,20 @@ Type `Ruby Coverage` and hit enter.
 Usage
 -----
 
+To set color of the marks, add the following to your **color scheme** settings array:
+
+    <dict>
+      <key>name</key>
+      <string>coverage.uncovered</string>
+      <key>scope</key>
+      <string>coverage.uncovered</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#ffff33</string>
+      </dict>
+    </dict>
+
 Ignoring Files
 --------------
 

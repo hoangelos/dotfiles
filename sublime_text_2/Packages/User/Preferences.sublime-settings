@@ -1,6 +1,8 @@
 {
+	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
 	"ignored_packages":
 	[
 		"Vintage"
-	]
+	],
+	"detect_slow_plugins": false
 }

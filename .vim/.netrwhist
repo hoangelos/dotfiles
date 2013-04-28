@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/phalliday/arXiv_Invenio/webdoc'
+let g:netrw_dirhist_2='/Users/phalliday/BankCS5414/.settings'
+let g:netrw_dirhist_3='/Users/phalliday/Downloads/DCP Project Phase3/nbproject'
+let g:netrw_dirhist_4='/Users/phalliday/git/INFO5300/.settings'
+let g:netrw_dirhist_5='/Users/phalliday/dotfiles/python'

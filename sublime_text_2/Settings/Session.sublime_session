@@ -2,6 +2,14 @@
 	"folder_history":
 	[
 		"/Users/phalliday/mongo-tools",
+		"/Users/phalliday/INFO5300",
+		"/Users/phalliday/Downloads/solution 2/INFO5300",
+		"/Users/phalliday/Desktop/solution/INFO5300",
+		"/Users/phalliday/cular_ingest",
+		"/Users/phalliday/git/solution/INFO5300",
+		"/Users/phalliday/Downloads/cloudburst-bio/CloudBurst",
+		"/Users/phalliday/dotfiles",
+		"/Users/phalliday/dotfiles_secure",
 		"/Users/phalliday/Documents/intentmedia",
 		"/Users/phalliday/arXivSrc",
 		"/Users/phalliday/datastax",
@@ -10,7 +18,7 @@
 		"/Users/phalliday/shutterstock",
 		"/Users/phalliday/Downloads/programmer-hiring-1-1.0.0"
 	],
-	"last_window_id": 54,
+	"last_window_id": 100,
 	"settings":
 	{
 		"new_window_height": 793.0,
@@ -20,6 +28,22 @@
 			{
 				"selected_items":
 				[
+					[
+						"token",
+						"tokenValue"
+					],
+					[
+						"args",
+						"arg_list	Default"
+					],
+					[
+						"add",
+						"add_argument  (function)"
+					],
+					[
+						"rs",
+						"rstrip()	string"
+					],
 					[
 						"n",
 						"new"
@@ -113,9 +137,21 @@
 			"build_system": "Packages/Python/Python.sublime-build",
 			"command_palette":
 			{
-				"height": 347.0,
+				"height": 392.0,
 				"selected_items":
 				[
+					[
+						"Package Control: ",
+						"Package Control: Remove Package"
+					],
+					[
+						"inst",
+						"Package Control: Install Package"
+					],
+					[
+						"ins",
+						"Package Control: Install Package"
+					],
 					[
 						"pack",
 						"Package Control: Add Repository"
@@ -133,10 +169,6 @@
 						"Package Control: Install Package"
 					],
 					[
-						"inst",
-						"Package Control: Install Package"
-					],
-					[
 						"packins",
 						"Package Control: Install Package"
 					],
@@ -147,10 +179,6 @@
 					[
 						"inte",
 						"SublimeCodeIntel: Reset"
-					],
-					[
-						"ins",
-						"Package Control: Install Package"
 					],
 					[
 						"in",
@@ -185,7 +213,7 @@
 						"Package Control: Install Package"
 					]
 				],
-				"width": 593.0
+				"width": 602.0
 			},
 			"console":
 			{
@@ -202,6 +230,20 @@
 			},
 			"file_history":
 			[
+				"/Users/phalliday/mongo-tools/lib/query_analyzer/evaluator.rb",
+				"/Users/phalliday/mongo-tools/lib/event_monitor/monitors.rb",
+				"/Users/phalliday/mongo-tools/config/routes.rb",
+				"/Users/phalliday/mongo-tools/Gemfile.lock",
+				"/Users/phalliday/git/solution/INFO5300/src/main/java/com/info5300/mapper/WordCount.java",
+				"/Users/phalliday/git/solution/INFO5300/docs/EMR Word Count Job.txt",
+				"/Users/phalliday/git/solution/INFO5300/test/wordlist.txt",
+				"/Users/phalliday/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+				"/Users/phalliday/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+				"/Users/phalliday/dotfiles_secure/aws/config",
+				"/Users/phalliday/dotfiles_secure/aws/install.sh",
+				"/Users/phalliday/dotfiles/homebrew/install.sh",
+				"/Users/phalliday/dotfiles/osx/install.sh",
+				"/Users/phalliday/dotfiles/rvm/install.sh",
 				"/Users/phalliday/datastax/lib/datastax/models.py",
 				"/Users/phalliday/datastax/lib/timeline.py",
 				"/Users/phalliday/sittercity/src/class.rb",
@@ -234,6 +276,7 @@
 				"height": 0.0,
 				"where_history":
 				[
+					""
 				]
 			},
 			"find_state":
@@ -241,6 +284,9 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"EfficiencyResult",
+					"EvaluationResult",
+					"detect_slow_plugins",
 					"DEFAULT_ACCESS_LOG",
 					"$ACCESS_LOG",
 					"fwcmd",

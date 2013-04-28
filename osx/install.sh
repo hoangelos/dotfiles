@@ -6,6 +6,14 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+curl -O https://raw.github.com/altercation/solarized/master/osx-terminal.app-colors-solarized/xterm-256color/Solarized%20Light%20xterm-256color.terminal
+open "Solarized%20Light%20xterm-256color.terminal"
+sleep 1
+curl -O https://raw.github.com/altercation/solarized/master/osx-terminal.app-colors-solarized/xterm-256color/Solarized%20Dark%20xterm-256color.terminal
+open "Solarized%20Dark%20xterm-256color.terminal"
+sleep 1
+
+
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "HallidayBook Pro"
 sudo scutil --set HostName "HallidayBook Pro"
@@ -54,6 +62,9 @@ defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 defaults write com.apple.terminal StringEncodings -array 4
+
+defaults write com.apple.terminal "Default Window Settings" -string "Solarized Dark xterm-256color"
+defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Dark xterm-256color"
 
 defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"\\
 
