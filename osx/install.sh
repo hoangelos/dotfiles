@@ -25,12 +25,51 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 defaults write com.apple.menuextra.battery ShowTime -string "YES"
 
-sudo pmset -a sleep 600
+sudo pmset -b sleep 0
+
+### Display sleep: 10 min
+sudo pmset -b displaysleep 10
+
+### Put the hard disk(s) to sleep when possible: 10 min
+sudo pmset -b disksleep 10
+
+### Slightly dim the display when using this power source
+sudo pmset -b lessbright 0
+
+### Automatically reduce brightness before display goes to sleep
+sudo pmset -b halfdim 0
+
+### Restart automatically if the computer freezes
+sudo pmset -b panicrestart 15
+
+### Computer sleep: Never
+/usr/bin/sudo /usr/bin/pmset -c sleep 0
+
+### Display sleep: 10 min
+/usr/bin/sudo /usr/bin/pmset -c displaysleep 10
+
+### Put the hard disk(s) to sleep when possible: 10 min
+/usr/bin/sudo /usr/bin/pmset -c disksleep 10
+
+### Wake for network access
+/usr/bin/sudo /usr/bin/pmset -c womp 1
+
+### Automatically reduce brightness before display goes to sleep
+/usr/bin/sudo /usr/bin/pmset -c halfdim 0
+
+### Start up automatically after a power failure
+/usr/bin/sudo /usr/bin/pmset -c autorestart 1
+
+### Restart automatically if the computer freezes
+/usr/bin/sudo /usr/bin/pmset -c panicrestart 15
 
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 
+defaults write come.apple.loginwindow LoginwindowText -string "If this Mac is found, please call 607-329-6905"
+
 defaults write com.apple.BezelServices kDim -bool true
 defaults write com.apple.BezelServices kDimTime -int 300
+defaults write com.apple.BezelServices 'dAuto' -bool false
 
 systemsetup -settimezone "America/Chicago" > /dev/null
 
@@ -76,19 +115,28 @@ defaults write com.apple.CrashReporter DialogType none
 
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 
-defaults write com.apple.dock use-new-list-stack -bool YES
+defaults write com.apple.dock use-new-list-stack -bool true
+defaults write com.apple.dock wvous-bl-corner -int 5
 
-defaults write com.apple.screensaver askForPassword -int 1
-defaults -currentHost write com.apple.screensaver askForPasswordDelay -int 0
+defaults write com.apple.screensaver 'askForPassword' -int 1
+defaults write com.apple.screensaver 'askForPasswordDelay' -int 5
+defaults -currentHost write com.apple.screensaver '{ CleanExit = YES; PrefsVersion = 100; askForPasswordDelay = 0 moduleDict = { moduleName = "Word of the Day"; path = "/System/Library/Screen Savers/Word of the Day.qtz"; type = 1; }; }'
 
 defaults write com.apple.QuickTimePlayerX MGFullScreenExitOnAppSwitch -int 0
 
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -bool true
+defaults write com.apple.SoftwareUpdate 'AutomaticDownload' -bool true
+
+defaults write com.apple.TimeMachine 'AutoBackup' -bool false
+
+defaults write -g 'PMPrintingExpandedStateForPrint' -bool true
+defaults write -g 'NSNavPanelExpandedStateForSaveMode' -bool true
 
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
-
+defaults write com.apple.dock 'tilesize' -int 42
+defaults write com.apple.dock 'magnification' -bool false
 
 defaults write com.apple.Safari IncludeInternalDebugMenu -int 1
 defaults write com.apple.Safari NSQuitAlwaysKeepsWindows -int 0
@@ -96,7 +144,7 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
 
-
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 '{ enabled = 1; value = { parameters = ( 65535, 49, 262144 ); type = standard; }; }'
 chflags nohidden ~/Library
 
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool true
