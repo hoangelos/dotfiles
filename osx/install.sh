@@ -120,7 +120,11 @@ defaults write com.apple.dock wvous-bl-corner -int 5
 
 defaults write com.apple.screensaver 'askForPassword' -int 1
 defaults write com.apple.screensaver 'askForPasswordDelay' -int 5
-defaults -currentHost write com.apple.screensaver '{ CleanExit = YES; PrefsVersion = 100; askForPasswordDelay = 0 moduleDict = { moduleName = "Word of the Day"; path = "/System/Library/Screen Savers/Word of the Day.qtz"; type = 1; }; }'
+defaults -currentHost write com.apple.screensaver CleanExit -bool YES
+defaults -currentHost write com.apple.screensaver PrefsVersion -int 100
+defaults -currentHost write com.apple.screensaver moduleDict -dict type -int 1
+efaults -currentHost write com.apple.screensaver moduleDict -dict-add moduleName -string "Word of the Day"
+defaults -currentHost write com.apple.screensaver moduleDict -dict-add path -string "/System/Library/Screen Savers/Word of the Day.qtz"
 
 defaults write com.apple.QuickTimePlayerX MGFullScreenExitOnAppSwitch -int 0
 
