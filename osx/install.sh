@@ -56,17 +56,17 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
-defaults write com.apple.addressbook ABShowDebugMenu -bool true
+defaults write com.apple.Addressbook ABShowDebugMenu -bool true
 
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
-defaults write com.apple.terminal StringEncodings -array 4
+defaults write com.apple.Terminal StringEncodings -array 4
 
-defaults write com.apple.terminal "Default Window Settings" -string "Solarized Dark xterm-256color"
-defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Dark xterm-256color"
+defaults write com.apple.Terminal "Default Window Settings" -string "Solarized%20Dark%20xterm-256color"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Solarized%20Dark%20xterm-256color"
 
-defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"\\
+defaults write com.apple.Mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"\\
 
 defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
 
@@ -105,7 +105,7 @@ defaults write com.apple.dock mouse-over-hilite-stack -bool true
 
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 
-defaults write com.apple.Safari IncludeInternalDebugMenu 1
+defaults write com.apple.Safari IncludeInternalDebugMenu -int 1
 
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 

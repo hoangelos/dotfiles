@@ -17,7 +17,7 @@ else
 fi
 unset doIt
 
-ssh-keygen -N '' -t rsa -q
+source ~/.bash_profile
 
 ./osx/install.sh
 
@@ -31,10 +31,8 @@ ssh-keygen -N '' -t rsa -q
 
 cp -vaR sublime_text_2/  ~/Library/Application\ Support/Sublime\ Text\ 2/
 
-cp -var .openshift ~/.openshift/
+cp -vaR .openshift ~/.openshift/
 
-
-source ~/.bash_profile
 
 mkdir -p ~/bin
 
