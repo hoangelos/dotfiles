@@ -18,3 +18,8 @@ cd dotfiles
 1. Mathias' dotfiles (http://github.com/mathiasbynens/dotfiles)
 2. Brandon Black's dotfiles (http://github.com/brandonblack/dotfiles)
 3. Too many others to mention.
+
+## TODO
+
+1. Figure out how to reset Spotlight's hotkey
+2. Figure out how to auto add Twitter, Facebook, and Mail accounts.
