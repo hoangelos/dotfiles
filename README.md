@@ -1,5 +1,10 @@
 # Peter Halliday’s dotfiles
 
+## Prerequisites
+
+1. Install XCode and install the Command-Line Tools
+   (Preferences > Download)
+
 ## Installation
 
 ```bash
@@ -12,3 +17,4 @@ cd dotfiles
 
 1. Mathias' dotfiles (http://github.com/mathiasbynens/dotfiles)
 2. Brandon Black's dotfiles (http://github.com/brandonblack/dotfiles)
+3. Too many others to mention.
