@@ -7,4 +7,5 @@ cp rvm/*.gems ~/.rvm/gemsets
 
 rvm autolibs enable
 rvm install 1.9.3
-rvm --default 1.9.3
+rvm alias create default ruby-1.9.3
+rvm use 1.9.3
