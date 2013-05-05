@@ -25,14 +25,13 @@ source ~/.bash_profile
 
 ./python/install.sh
 
-./rvm/install.sh
-
 ./aws/install.sh
+
+./rvm/install.sh
 
 cp -vaR sublime_text_2/  ~/Library/Application\ Support/Sublime\ Text\ 2/
 
 cp -vaR .openshift ~/.openshift/
-
 
 mkdir -p ~/bin
 
