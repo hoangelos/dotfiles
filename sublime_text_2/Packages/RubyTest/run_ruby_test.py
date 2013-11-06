@@ -12,9 +12,11 @@ class ShowInPanel:
   def display_results(self):
     self.panel = self.window.get_output_panel("exec")
     self.window.run_command("show_panel", {"panel": "output.exec"})
+    self.panel.settings().set("color_scheme", THEME)
+    self.panel.set_syntax_file(SYNTAX)
     if HIDE_PANEL:
       self.window.run_command("hide_panel")
-    self.panel.settings().set("color_scheme", "Packages/RubyTest/TestConsole.hidden-tmTheme")
+    self.panel.settings().set("color_scheme", THEME)
 
 
 class ShowInScratch:
@@ -30,8 +32,8 @@ class ShowInScratch:
     self.view.set_scratch(True)
     self.view.set_read_only(False)
 
-    self.view.settings().set("syntax", "Packages/RubyTest/TestConsole.tmLanguage")
-    self.view.settings().set("color_scheme", "Packages/RubyTest/TestConsole.hidden-tmTheme")
+    self.view.set_syntax_file(SYNTAX)
+    self.view.settings().set("color_scheme", THEME)
     self.view.set_read_only(True)
     self.poll_copy()
     self.append('\n\n')
@@ -100,7 +102,7 @@ class TestMethodMatcher(object):
       if not match_obj:
         return None
       test_name = match_obj.group(1)[::-1]
-      return "%s%s%s" % ("/", test_name.replace("should", "").replace("\"", "").strip(), "/")
+      return "%s%s%s" % ("/", test_name.replace("should", "").replace("\"", "").replace("'", "").strip(), "/")
 
 
 class RubyTestSettings:
@@ -125,15 +127,49 @@ class BaseRubyTask(sublime_plugin.TextCommand):
     global BEFORE_CALLBACK; BEFORE_CALLBACK = s.get("before_callback")
     global AFTER_CALLBACK; AFTER_CALLBACK = s.get("after_callback")
     global COMMAND_PREFIX; COMMAND_PREFIX = False
+    global SAVE_ON_RUN; SAVE_ON_RUN = s.get("save_on_run")
+    global SYNTAX; SYNTAX = s.get('syntax')
+    global THEME; THEME = s.get('theme')
 
+
+    rbenv = s.get("check_for_rbenv")
+    rvm = s.get("check_for_rvm")
+    bundler = s.get("check_for_bundler")
+    if rbenv or rvm: self.rbenv_or_rvm(s, rbenv, rvm)
+    if bundler: self.bundler_support()
+
+  def rbenv_or_rvm(self, s, rbenv, rvm):
+    which = os.popen('which rbenv').read().split('\n')[0]
+    brew = '/usr/local/bin/rbenv'
     rbenv_cmd = os.path.expanduser('~/.rbenv/bin/rbenv')
     rvm_cmd = os.path.expanduser('~/.rvm/bin/rvm-auto-ruby')
-    if s.get("check_for_rbenv") and self.is_executable(rbenv_cmd):
+
+    if os.path.isfile(brew): rbenv_cmd = brew
+    elif os.path.isfile(which): rbenv_cmd = which
+
+    global COMMAND_PREFIX
+    if rbenv and self.is_executable(rbenv_cmd):
       COMMAND_PREFIX = rbenv_cmd + ' exec'
-    elif s.get("check_for_rvm") and self.is_executable(rvm_cmd):
+    elif rvm and self.is_executable(rvm_cmd):
       COMMAND_PREFIX = rvm_cmd + ' -S'
 
-    if s.get("save_on_run"):
+  def bundler_support(self):
+    project_root = self.file_type(None, False).find_project_root()
+    if not os.path.isdir(project_root):
+      s = sublime.load_settings("RubyTest.last-run")
+      project_root = s.get("last_test_working_dir")
+
+    gemfile_path = project_root + '/Gemfile'
+
+    global COMMAND_PREFIX
+    if not COMMAND_PREFIX:
+      COMMAND_PREFIX = ""
+
+    if os.path.isfile(gemfile_path):
+      COMMAND_PREFIX =  COMMAND_PREFIX + " bundle exec "
+
+  def save_all(self):
+    if SAVE_ON_RUN:
       self.window().run_command("save_all")
 
   def is_executable(self, path):
@@ -219,7 +255,7 @@ class BaseRubyTask(sublime_plugin.TextCommand):
       if test_name is None:
         sublime.error_message("No test name!")
         return None
-      return RubyTestSettings().run_single_ruby_unit_command(relative_path=self.relative_file_path(), test_name=test_name)
+      return RubyTestSettings().run_single_ruby_unit_command(relative_path=self.relative_file_path(), test_name=test_name, line_number=self.get_current_line_number(view))
     def features(self): return super(BaseRubyTask.UnitFile, self).features() + ["run_test"]
     def get_project_root(self): return self.find_project_root()
 
@@ -231,7 +267,7 @@ class BaseRubyTask(sublime_plugin.TextCommand):
     def get_project_root(self): return self.find_project_root()
 
   class RSpecFile(RubyFile):
-    def possible_alternate_files(self): return list( set( [self.file_name.replace("_spec.rb", ".rb"), self.file_name.replace("_haml_spec.rb", ".haml")] ) - set([self.file_name]) )
+    def possible_alternate_files(self): return list( set( [self.file_name.replace("_spec.rb", ".rb"), self.file_name.replace(".haml_spec.rb", ".haml"), self.file_name.replace(".erb_spec.rb", ".erb")] ) - set([self.file_name]) )
     def run_all_tests_command(self): return RubyTestSettings().run_rspec_command(relative_path=self.relative_file_path())
     def run_single_test_command(self, view): return RubyTestSettings().run_single_rspec_command(relative_path=self.relative_file_path(), line_number=self.get_current_line_number(view))
     def features(self): return super(BaseRubyTask.RSpecFile, self).features() + ["run_test"]
@@ -240,7 +276,8 @@ class BaseRubyTask(sublime_plugin.TextCommand):
   class ErbFile(BaseFile):
     def verify_syntax_command(self): return RubyTestSettings().erb_verify_command(file_name=self.file_name)
     def can_verify_syntax(self): return True
-    def features(self): return ["verify_syntax"]
+    def possible_alternate_files(self): return [self.file_name.replace(".erb", ".erb_spec.rb")]
+    def features(self): return ["verify_syntax", "switch_to_test"]
 
   class HamlFile(BaseFile):
     def possible_alternate_files(self): return [self.file_name.replace(".haml", ".haml_spec.rb")]
@@ -257,8 +294,9 @@ class BaseRubyTask(sublime_plugin.TextCommand):
         return re.sub(os.sep + '.+', "", file_name.replace(folder,"")[1:])
     return default_partition_folder
 
-  def file_type(self, file_name = None):
-    self.load_config()
+  def file_type(self, file_name = None, load_config = True):
+    if load_config:
+      self.load_config()
     file_name = file_name or self.view.file_name()
     if not file_name: return BaseRubyTask.AnonymousFile()
     if re.search('\w+\_test.rb', file_name):
@@ -286,6 +324,7 @@ class RunSingleRubyTest(BaseRubyTask):
   def is_enabled(self): return 'run_test' in self.file_type().features()
   def run(self, args):
     self.load_config()
+    self.save_all()
     file = self.file_type()
     command = file.run_single_test_command(self.view)
     self.run_shell_command(command, file.get_project_root())
@@ -295,6 +334,7 @@ class RunAllRubyTest(BaseRubyTask):
   def is_enabled(self): return 'run_test' in self.file_type().features()
   def run(self, args):
     self.load_config()
+    self.save_all()
     file = self.file_type(self.view.file_name())
     command = file.run_all_tests_command()
     if self.run_shell_command(command, file.get_project_root()):
@@ -306,6 +346,7 @@ class RunAllRubyTest(BaseRubyTask):
 class RunLastRubyTest(BaseRubyTask):
   def load_last_run(self):
     self.load_config()
+    self.save_all()
     s = sublime.load_settings("RubyTest.last-run")
     return (s.get("last_test_run"), s.get("last_test_working_dir"))
 

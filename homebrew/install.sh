@@ -13,7 +13,7 @@ brew install apple-gcc42
 sudo ln -s /usr/local/bin/gcc-4.2 /usr/bin/gcc-4.2
 
 brew install clojure
-
+brew install leinengen 2.1.3
 brew install homebrew/dupes/grep
 brew install git
 

@@ -15,10 +15,10 @@ sleep 1
 
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "HallidayBook Pro"
-sudo scutil --set HostName "HallidayBook Pro"
-sudo scutil --set LocalHostName "HallidayBook-Pro"
-defaults write com.apple.smb.server NetBIOSName -string "HallidayBook-Pro"
+sudo scutil --set ComputerName "HallidayBookPro"
+sudo scutil --set HostName "HallidayBookPro"
+sudo scutil --set LocalHostName "HallidayBookPro"
+defaults write com.apple.smb.server NetBIOSName -string "HallidayBookPro"
 
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
