@@ -33,6 +33,6 @@ cp -vaR sublime_text_2/  ~/Library/Application\ Support/Sublime\ Text\ 2/
 
 cp -vaR .openshift ~/.openshift/
 
-mkdir -p ~/bin
+cp -vaR bin/ ~/bin/
 
 sudo ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl ~/bin/sublime
