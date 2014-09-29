@@ -36,3 +36,7 @@ cp -vaR .openshift ~/.openshift/
 cp -vaR bin/ ~/bin/
 
 sudo ln -s /Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl ~/bin/sublime
+
+git config --global mergetool.sublime.cmd "sublime -w \$MERGED"
+git config --global mergetool.sublime.trustExitCode false
+git config --global merge.tool sublime
