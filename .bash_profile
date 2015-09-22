@@ -42,3 +42,7 @@ which grunt > /dev/null && eval "$(grunt --completion=bash)"
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 complete -C aws_completer aws
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
