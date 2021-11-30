@@ -1,7 +1,0 @@
-<snippet>
-  <content><![CDATA[
-http://www.example.com
-]]></content>
-  <tabTrigger>xc</tabTrigger>
-  <scope>source.ruby</scope>
-</snippet>

@@ -1,6 +1,3 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:/usr/local/bin:$HOME/.venvburrito/bin/:$PATH"
-source ~/.venvburrito/startup.sh
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -39,9 +36,32 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Autocomplete Grunt commands
 which grunt > /dev/null && eval "$(grunt --completion=bash)"
 
-# If possible, add tab completion for many more commands
-[ -f /etc/bash_completion ] && source /etc/bash_completion
-complete -C aws_completer aws
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
+if command -v jenv 1>/dev/null 2>&1; then
+  eval "$(jenv init -)"
+fi
+
+if command -v direnv 1>/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash

@@ -1,4 +1,0 @@
-[
-	{ "keys": ["ctrl+alt+p"], "command": "print_file"},
-	{ "keys": ["ctrl+shift+alt+p"], "command": "print_selection"}
-]

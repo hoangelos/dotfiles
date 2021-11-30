@@ -1,7 +1,8 @@
 #!/bin/bash
 
-sudo easy_install pip
+pyenv install  3.7.12
+pyenv isntall 3.8.12
+pyenv install 3.9.7
+pyenv install 3.10.0
 
-sudo pip install distribute
-
-curl -s https://raw.github.com/brainsik/virtualenv-burrito/master/virtualenv-burrito.sh | $SHELL
+pyenv global 3.9.7

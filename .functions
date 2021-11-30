@@ -200,6 +200,24 @@ end tell
 EOF
 }
 
+# Depending on the system, we may have curl or wget but not both -- so try to
+# figure it out.
+try_curl() {
+    url=$1; dest=$2; command -v curl > /dev/null && curl -fL $url > $dest
+}
+try_wget() {
+    url=$1; dest=$2; command -v wget > /dev/null && wget -O- $url > $dest
+}
+
+# Generic download function
+download() {
+    echo "Downloading $1 to $2"
+    [[ -e $(dirname $2) ]] || mkdir -p $(dirname $2)
+    if ! (try_curl $1 $2 || try_wget $1 $2); then
+        echo "Could not download $1"
+    fi
+}
+
 # Manually remove a downloaded app or file from the quarantine
 function unquarantine() {
 	for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine; do

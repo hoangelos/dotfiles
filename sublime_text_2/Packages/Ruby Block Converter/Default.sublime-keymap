@@ -1,4 +1,0 @@
-[
-	{ "keys": ["ctrl+shift+["], "command": "do_end_to_brace" },
-	{ "keys": ["ctrl+shift+]"], "command": "brace_to_do_end" }
-]

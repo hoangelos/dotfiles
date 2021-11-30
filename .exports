@@ -1,7 +1,5 @@
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
-export EDITOR="sublime -w"
-export ed="sublime -w"
+export LC_ALL="en_US.UTF-16"
+export LANG="en_US"]
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
@@ -13,8 +11,4 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
 export MANPAGER="less -X"
 
-export PYTHONSTARTUP=~/.pystartup
-
-export RAILS_ENV='development'
-
-export AWS_CONFIG_FILE=~/.aws/config
+export PYENV_ROOT="$HOME/.pyenv"
