@@ -1,0 +1,65 @@
+- shell:
+    - description: "Installing submodules"
+      command: >
+        git submodule update --init --recursive
+    - description: "Install XCode CLI Tools"
+      command: >
+        if [ ! -d $(xcode-select -p) ]; then
+          xcode-select --install
+        fi
+
+- plugins:
+    - dotbot-asdf/
+    - dotbot-brew/
+    - dotbot-vscode/
+
+- defaults:
+    link:
+      relink: true
+      force: true
+
+- clean:
+    ~/:
+      force: true
+
+- create:
+    ~/.ssh:
+      mode: 0700
+
+- link:
+    ~/.zshrc:
+      path: zshrc
+    ~/.gitconfig:
+      mode: 0700
+      path: gitconfig
+
+- install-brew: true
+
+# Installs certain brew packages
+- brew:
+  - antigen
+  - asdf
+  - azure-cli
+  - direnv
+  - hugo
+  - jq
+  - yq
+
+- asdf:
+  - plugin: python
+    url: https://github.com/tuvistavie/asdf-python.git
+    versions:
+      - 3.10.18
+      - 3.11.13
+      - 3.12.11
+      - 3.13.6
+    default: 3.13.6  # Set in home directory (replaces global)
+  
+- shell:
+    - description: "Making zsh the default shell"
+      command: chsh -s $(which zsh)
+    - description: "Creating ssh key (if needed)"
+      command: >
+        if [ ! -f $HOME/.ssh/id_ed25519 ]; then
+          ssh-keygen -t ed25519 -C "pjh239@cornell.edu"
+        fi 

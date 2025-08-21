@@ -1,4 +1,0 @@
-export PATH="$HOME/.jenv/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
-export PATH=/usr/local/homebrew/bin:$PATH
-export PATH="$HOME/bin:$PATH"
