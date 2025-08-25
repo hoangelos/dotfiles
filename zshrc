@@ -2,7 +2,7 @@
 source $(brew --prefix)/share/antigen/antigen.zsh
 
 # Load asdf
-source "$(brew --prefix)/libexec/asdf.sh"
+source "$(brew --prefix asdf)/libexec/asdf.sh"
 
 # Load the oh-my-zsh's library
 antigen use oh-my-zsh
@@ -10,7 +10,6 @@ antigen use oh-my-zsh
 # Load oh-my-zsh plugins
 antigen bundle git
 antigen bundle direnv
-antigen bundle asdf
 antigen bundle command-not-found
 
 antigen bundle zsh-users/zsh-autosuggestions
@@ -24,3 +23,6 @@ antigen theme romkatv/powerlevel10k
 
 # Apply the Antigen configuration
 antigen apply
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,22 +1,44 @@
+
+
+- defaults:
+    link:
+      relink: true
+      force: true
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
+    brew:
+      stdin: true
+      stdout: true
+      stderr: true
+      
 - shell:
     - description: "Installing submodules"
       command: >
         git submodule update --init --recursive
     - description: "Install XCode CLI Tools"
       command: >
-        if [ ! -d $(xcode-select -p) ]; then
+        if [[ ! -d $(xcode-select -p) ]]; then
           xcode-select --install
+        fi
+    - description: "Install homebrew"
+      command: >
+        if [[ ! -x "$(which brew)" ]]; then
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        fi
+    - description: "Install Powerlevel10k fonts"
+      # For macOS using `cp` and `open`
+      command: |
+        if [[ ! -d"~/Library/Fonts/meslo" ]]; then
+          cp -r fonts/meslo ~/Library/Fonts/
+          open ~/Library/Fonts/meslo/*
         fi
 
 - plugins:
-    - dotbot-asdf/
     - dotbot-brew/
+    - dotbot-asdf/
     - dotbot-vscode/
-
-- defaults:
-    link:
-      relink: true
-      force: true
 
 - clean:
     ~/:
@@ -34,8 +56,9 @@
     ~/.gitconfig:
       mode: 0700
       path: gitconfig
+    ~/.p10k.zsh:
+      path: p10k.zsh
 
-- install-brew: true
 
 # Installs certain brew packages
 - brew:
@@ -45,6 +68,7 @@
   - direnv
   - hugo
   - jq
+  - wget
   - yq
 
 - asdf:
@@ -68,3 +92,18 @@
         if [[ ! -f "$HOME/.ssh/id_ed25519" ]]; then
           ssh-keygen -t ed25519 -f $HOME/.ssh/id_ed25519 -N "" -C "pjh239@cornell.edu"
         fi 
+    - description: "Show extensions on files"
+      command: >
+        defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+    - description: "Don't show recents in Docks"
+      command: defaults write com.apple.dock show-recents -bool false
+    - description: "Hot corner lower left, lock computer"
+      command: defaults write com.apple.dock wvous-bl-corner -int 13
+    - description: "Show List view in Finder"
+      command: defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+    - description: "Search current folder"
+      command: defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+    - descdescriptionription: "Enable scrollbars"
+      command: defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+    - description: "Disable Auto Capitalization"
+      command: defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
